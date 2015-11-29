@@ -39,7 +39,16 @@ angular.module('main', [
         views: {
           'tab-notification': {
             templateUrl: 'main/templates/notification.html',
-            // controller: 'SomeCtrl as ctrl'
+            controller: 'NotificationCtrl as NotiCtrl'
+          }
+        }
+      })
+      .state('main.notificationDetail', {
+        url: '/notification/detail/:id',
+        views: {
+          'tab-notification': {
+            templateUrl: 'main/templates/notification-detail.html',
+            controller: 'NotificationDetailCtrl as NotiDetailCtrl'
           }
         }
       })
@@ -48,7 +57,7 @@ angular.module('main', [
         views: {
           'tab-chat': {
             templateUrl: 'main/templates/chat.html',
-            controller: 'ChatCtrl as ctrl'
+            controller: 'ChatCtrl as ChatCtrl'
           }
         }
       })
@@ -56,8 +65,8 @@ angular.module('main', [
         url: '/chat/detail/:id',
         views: {
           'tab-chat': {
-            templateUrl: 'main/templates/chat.html',
-            controller: 'ChatCtrl as ctrl'
+            templateUrl: 'main/templates/chat-detail.html',
+            controller: 'ChatDetailCtrl as ChatDetailCtrl'
           }
         }
       });

@@ -1,14 +1,15 @@
-<ion-view view-title="Notifications">
+<ion-view view-title="Notification">
   <ion-content>
 
     <!-- content goes here -->
     <ion-list>
-      <ion-item
-        class="item-remove-animate item-avatar item-icon-right"
-        type="item-text-wrap">
-        <img src="main/assets/images/yo@2x.png">
-        <h2>Notification  </h2>
-        <p>Details.</p>
+      <ion-item ng-repeat="notification in NotiCtrl.listOfNotifications()"
+        class="item-remove-animate item-avatar item-icon-left item-icon-right"
+        type="item-text-wrap"
+        ui-sref="main.notificationDetail({id: notification.id})">
+        <i class="icon ion-alert"></i>
+        <h2>{{notification.title}}</h2>
+        <p>{{notification.desc}}</p>
         <i class="icon ion-chevron-right icon-accessory"></i>
       </ion-item>
     </ion-list>

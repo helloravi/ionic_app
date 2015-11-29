@@ -24,13 +24,64 @@
   </head>
   <body ng-app="test">
 
-    <!-- the nav bar will be updated as we navigate between views -->
-    <!-- <ion-nav-bar> can be removed when using sidemenu (contained in menu.html) -->
-    <ion-nav-bar class="bar-positive">
-      <ion-nav-back-button></ion-nav-back-button>
-    </ion-nav-bar>
+
     <!-- the current view will be rendered in the <ion-nav-view> directive -->
-    <ion-nav-view></ion-nav-view>
+    <ion-side-menus>
+      <!-- Left menu -->
+      <ion-side-menu side="left">
+        <ion-header-bar class="bar-positive">
+          <h1 class="title">Menu</h1>
+        </ion-header-bar>
+        <ion-content>
+          <ion-list class="item-icon-left item-icon-right">
+            <ion-item menu-close ui-sref="main.announcement" >
+              <i class="icon ion-home"></i>
+              <h2>Home</h2>
+              <i class="icon ion-chevron-right icon-accessory"></i>
+            </ion-item>
+            <ion-item menu-close ui-sref="main.announcement">
+              <i class="icon ion-speedometer"></i>
+              <span>Attendance Record</span>
+              <i class="icon ion-chevron-right icon-accessory"></i>
+            </ion-item>
+            <ion-item menu-close ui-sref="main.announcement">
+            <i class="icon ion-compose"></i>
+                Apply Leave
+            <i class="icon ion-chevron-right icon-accessory"></i>
+            </ion-item>
+            <ion-item menu-close ui-sref="main.announcement">
+              <i class="icon ion-paper-airplane"></i>
+              Your Kid's progress
+            </ion-item>
+            <ion-item menu-close ui-sref="main.announcement">
+              <i class="icon ion-gear-b"></i>
+              Settings
+            </ion-item>
+            <ion-item menu-close ui-sref="main.announcement">
+              <i class="icon ion-cash"></i>
+              Pay Fees
+            </ion-item>
+            <ion-item menu-close ui-sref="main.announcement">
+              <i class="icon ion-log-out"></i>
+              Logout
+            </ion-item>
+          </ion-list>
+        </ion-content>
+      </ion-side-menu>
+
+      <ion-side-menu-content>
+        <!-- the nav bar will be updated as we navigate between views -->
+        <!-- <ion-nav-bar> can be removed when using sidemenu (contained in menu.html) -->
+        <ion-nav-bar class="bar-positive">
+          <ion-nav-buttons side="left">
+            <button menu-toggle="left" class="button button-icon button-clear ion-navicon" ></button>
+          </ion-nav-buttons>
+          <ion-nav-back-button></ion-nav-back-button>
+        </ion-nav-bar>
+        <ion-nav-view></ion-nav-view>
+      </ion-side-menu-content>
+
+    </ion-side-menus>
 
     <!-- will be a 404 during development -->
     <script src="cordova.js"></script>
@@ -52,9 +103,12 @@
     <!-- build:js scripts/app.js -->
     <!-- inject:js -->
     <script src="main/main.js"></script>
+    <script src="main/services/notification-service.js"></script>
     <script src="main/services/main-serv.js"></script>
     <script src="main/services/chat-service.js"></script>
     <script src="main/services/ann-serv.js"></script>
+    <script src="main/controllers/notification-detail-ctrl.js"></script>
+    <script src="main/controllers/notification-ctrl.js"></script>
     <script src="main/controllers/chat-detail-ctrl.js"></script>
     <script src="main/controllers/chat-ctrl.js"></script>
     <script src="main/controllers/announcement-detail-ctrl.js"></script>
